@@ -1,0 +1,8 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        lp = 0
+        for rp in range(len(nums)):
+            if nums[rp] != nums[lp]: #Check for unique element
+                nums[lp+1] = nums[rp] # Occupy the Next Position
+                lp += 1
+        return lp+1  # Return the Final Count
