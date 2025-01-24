@@ -1,0 +1,33 @@
+def MergeSort(arr):
+    if len(arr) > 1:
+        left_arr = arr[:len(arr)//2]
+        right_arr = arr[len(arr)//2:]
+
+        MergeSort(left_arr)
+        MergeSort(right_arr)
+    
+        lp = 0
+        rp = 0
+        k = 0
+
+        while lp < len(left_arr) and rp < len(right_arr): #Sort the array until one of the subarray becomes empty
+            if left_arr[lp] < right_arr[rp]:
+                arr[k] = left_arr[lp]
+                lp += 1
+            else:
+                arr[k] = right_arr[rp]
+                rp += 1
+            k += 1
+
+        while lp < len(left_arr): #DIrectly push the elements of left subarray when right becomes empty
+            arr[k] = left_arr[lp]
+            lp += 1
+            k += 1
+
+        while rp < len(right_arr): ##Directly push the elements of right subarray when left becomes empty
+            arr[k] = right_arr[rp]
+            rp += 1
+            k += 1
+
+    return arr
+print(MergeSort([16,7,18,21,4]))
