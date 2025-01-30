@@ -1,0 +1,21 @@
+class NumArray(object):
+
+    def __init__(self, nums):
+        
+        self.sum_arr = [] #Cretes a prefix sum
+        n = 0
+        for elem in nums:
+            n+=elem
+            self.sum_arr.append(n)
+        
+    def sumRange(self, left, right):
+        
+        if left == 0:
+            return self.sum_arr[right]
+        return self.sum_arr[right] - self.sum_arr[left - 1] #calculates the suum of elements btwn  given left and right indices
+        
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(left,right)
