@@ -1,0 +1,11 @@
+def dvisible_27(num):
+
+
+
+    if num % 27 == 0:
+        print("Divisible by 27")
+    else:
+        print("Not divisible by 27")
+
+
+(divisible_27(26))
