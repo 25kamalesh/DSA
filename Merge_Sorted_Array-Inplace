@@ -1,0 +1,20 @@
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        lp = m - 1  
+        rp = n - 1  
+        rpp = m + n - 1  
+        
+        while lp >= 0 and rp >= 0:
+            if nums1[lp] > nums2[rp]:
+                nums1[rpp] = nums1[lp]
+                lp -= 1
+            else:
+                nums1[rpp] = nums2[rp]
+                rp -= 1
+            rpp -= 1  
+
+    
+        while rp >= 0:
+            nums1[rpp] = nums2[rp]
+            rp -= 1
+            rpp -= 1  
